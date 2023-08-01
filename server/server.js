@@ -14,7 +14,12 @@ const Cat = require("./models/cat");
 mongoose.connect(process.env.DATABASE_URL);
 
 app.get("/", (request, response) => {
-  response;
+  response.status(200).json("hello");
+});
+
+app.get("/cats", async (request, response) => {
+  const allCats = await Cat.find(request.query);
+  response.status(200).json(allCats);
 });
 
 app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));

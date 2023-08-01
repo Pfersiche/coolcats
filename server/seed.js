@@ -22,6 +22,7 @@ async function seed() {
       "eating out of the trash",
     ],
   });
+
   console.log("go kitty go");
   mongoose.disconnect();
 }
